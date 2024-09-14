@@ -25,9 +25,11 @@ class sallerController extends Controller
     {
         $credentials = $this->getCredencial($request);
 
-        if (Auth::guard('seller')->attempt($credentials)) {
+        if (Auth::guard('vendedor')->attempt($credentials)) {
             //return redirect()->intended('dashboard'); // Redirige a la página que desees después del login
-            return 'Hola mundo';
+
+            $usuario = Auth::guard('vendedor')->user();
+            return $usuario;
         }
 
         return back()->withErrors([
