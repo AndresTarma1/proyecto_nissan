@@ -13,4 +13,12 @@ class Vehicle extends Model
     public function sales(): HasMany{
         return $this->hasMany(Sale::class);
     }
+
+    public function setModelAttribute($value){
+        $this->attributes['model'] = strtolower($value);
+    }
+
+    public function getModelAttribute($value){
+        return ucwords($value);
+    }
 }

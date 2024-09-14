@@ -30,7 +30,8 @@ class VehicleResource extends Resource
                 Forms\Components\TextInput::make('quantity')->numeric()->required()->label('Cantidad'),
                 Forms\Components\TextInput::make('value')->required()->numeric()->label('Precio'),
                 Forms\Components\FileUpload::make('image')->image()->label('Imagen')->directory('images')->required(),
-            ]);
+            ])
+            ;
     }
 
     public static function table(Table $table): Table

@@ -24,7 +24,22 @@ class SaleResource extends Resource
         return $form
             ->schema([
                 //
-            ]);
+                Forms\Components\Select::make('seller_id')->required()
+                ->relationship('seller', 'name')->label('Nombre del vendedor')
+                ->searchable()
+                ->preload(),
+                Forms\Components\Select::make('customer_id')
+                ->relationship('customer', 'name')->label('Nombre del cliente')->required()
+                ->searchable()
+                ->preload(),
+                Forms\Components\Select::make('vehicle_id')
+                ->relationship('vehicle', 'model')->label('Nombre del vehiculo')->required()
+                ->searchable()
+                ->preload(),
+                Forms\Components\DatePicker::make('fecha_venta')->maxDate(now())->required(),
+                Forms\Components\TextInput::make('total')->numeric()->required(),
+            ])
+            ->columns(1);
     }
 
     public static function table(Table $table): Table

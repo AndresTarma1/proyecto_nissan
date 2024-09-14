@@ -39,7 +39,6 @@ class SellerResource extends Resource
                 Tables\Columns\TextColumn::make('name')->label('Nombre'),
                 Tables\Columns\TextColumn::make('phone')->label('Telefono'),
                 Tables\Columns\TextColumn::make('email')->label('Direccion de correo'),
-                Tables\Columns\TextColumn::make('id'),
             ])
             ->filters([
                 //
