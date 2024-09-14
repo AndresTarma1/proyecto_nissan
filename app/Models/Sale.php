@@ -10,6 +10,19 @@ class Sale extends Model
 {
     use HasFactory;
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($venta) {
+            $vehicle = Vehicle::find($venta->vehicle_id);
+            if ($vehicle) {
+                $vehicle->quantity -= 1;
+                $vehicle->save();
+            }
+        });
+    }
+    
     public function seller(): BelongsTo{
         return $this->belongsTo(Seller::class);
     }

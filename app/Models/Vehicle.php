@@ -21,4 +21,10 @@ class Vehicle extends Model
     public function getModelAttribute($value){
         return ucwords($value);
     }
+
+
+    public function scopeAvailable($query)
+    {
+        return $query->where('quantity', '>', 0);
+    }
 }

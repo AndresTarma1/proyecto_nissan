@@ -19,9 +19,9 @@ class Seller extends Authenticatable // Cambia esta línea
         $this->attributes['name'] = strtolower($value);
     }
 
-    protected $fillable = [
-        'name', 'email', 'password', 'phone'
-    ];
+    // protected $fillable = [
+    //     'name', 'email', 'password', 'phone'
+    // ];
 
     public function getNameAttribute($value){
         return ucwords($value);

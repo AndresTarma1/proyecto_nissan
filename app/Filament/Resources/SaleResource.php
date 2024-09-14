@@ -33,7 +33,10 @@ class SaleResource extends Resource
                 ->searchable()
                 ->preload(),
                 Forms\Components\Select::make('vehicle_id')
-                ->relationship('vehicle', 'model')->label('Nombre del vehiculo')->required()
+                ->relationship('vehicle', 'model', function ($query) {
+                    return $query->available();
+                })
+                ->label('Nombre del vehiculo')->required()
                 ->searchable()
                 ->preload(),
                 Forms\Components\DatePicker::make('fecha_venta')->maxDate(now())->required(),

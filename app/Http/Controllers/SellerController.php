@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class sallerController extends Controller
+class SellerController extends Controller
 {
+    //
     public function index(){
-        return view("loginV");
+        return view("seller.login");
     }
 
     protected function getCredencial(Request $request)
@@ -28,8 +29,7 @@ class sallerController extends Controller
         if (Auth::guard('vendedor')->attempt($credentials)) {
             //return redirect()->intended('dashboard'); // Redirige a la página que desees después del login
 
-            $usuario = Auth::guard('vendedor')->user();
-            return $usuario;
+            return redirect()->route('welcome');
         }
 
         return back()->withErrors([
@@ -43,6 +43,6 @@ class sallerController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

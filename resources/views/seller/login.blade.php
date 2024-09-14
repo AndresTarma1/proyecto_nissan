@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Nissan | Register</title>
+    <title>Nissan | Login</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -107,10 +107,10 @@
     <div class="box">
         <div class="container">
             <div class="top-header">
-                <header>Login admin</header>
+                <header>Login Seller</header>
             </div>
 
-            <form action="{{route('logiar')}}" method="POST">
+            <form action="{{route('seller.login')}}" method="POST">
 
                 @csrf
 
@@ -132,10 +132,10 @@
             </form>
 
 
-            <div class="bottom">
+            {{-- <div class="bottom">
                 <div class="right">
                     <label><a href="#">No tengo cuenta, Registrar</a></label>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
