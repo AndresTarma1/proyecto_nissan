@@ -12,6 +12,6 @@ class CreateVehicle extends CreateRecord
 
     public function getTitle(): string
     {
-        return __('Lista de Vehiculos');
+        return __('Crear Vehiculo');
     }
 }

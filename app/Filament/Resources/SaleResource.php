@@ -36,11 +36,20 @@ class SaleResource extends Resource
                 ->relationship('vehicle', 'model', function ($query) {
                     return $query->available();
                 })
-                ->label('Nombre del vehiculo')->required()
+                ->label('Nombre del vehiculo')
+                ->required()
                 ->searchable()
-                ->preload(),
+                ->preload()
+                ->live()
+                ->afterStateUpdated(function ($state, callable $set) {
+                    $vehicle = \App\Models\Vehicle::find($state);
+                    $set('total', $vehicle ? $vehicle->value : 0);
+                }),
                 Forms\Components\DatePicker::make('fecha_venta')->maxDate(now())->required(),
-                Forms\Components\TextInput::make('total')->numeric()->required(),
+                Forms\Components\TextInput::make('total')
+                ->numeric()
+                ->required()
+                ->readonly(),
             ])
             ->columns(1);
     }
