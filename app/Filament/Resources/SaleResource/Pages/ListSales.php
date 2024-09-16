@@ -19,6 +19,6 @@ class ListSales extends ListRecords
 
     public function getTitle(): string
     {
-        return __('Lista de ventas');
+        return __('Lista de Ventas');
     }
 }

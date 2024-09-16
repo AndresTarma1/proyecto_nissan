@@ -26,7 +26,7 @@ class VehicleResource extends Resource
                 //
                 Forms\Components\TextInput::make('mark')->required()->maxLength(40)->label('Marca'),
                 Forms\Components\TextInput::make('model')->required()->maxLength(20)->label('Modelo'),
-                Forms\Components\DatePicker::make('year')->maxDate(now())->required()->label('Año'),
+                Forms\Components\DatePicker::make('year')->required()->label('Año')->Format('Y'),
                 Forms\Components\TextInput::make('quantity')->numeric()->required()->label('Cantidad'),
                 Forms\Components\TextInput::make('value')->required()->numeric()->label('Precio'),
                 Forms\Components\FileUpload::make('image')->image()->label('Imagen')->directory('images')->required(),
@@ -40,9 +40,9 @@ class VehicleResource extends Resource
             ->columns([
                 //
                 Tables\Columns\TextColumn::make('mark')->label('Marca'),
-                Tables\Columns\TextColumn::make('model')->label('Modelo'),
-                Tables\Columns\TextColumn::make('year')->label('Año'),
-                Tables\Columns\TextColumn::make('quantity')->label('Cantidad'),
+                Tables\Columns\TextColumn::make('model')->label('Modelo')->searchable(),
+                Tables\Columns\TextColumn::make('year')->label('Año')->sortable(),
+                Tables\Columns\TextColumn::make('quantity')->label('Cantidad')->sortable(),
                 Tables\Columns\ImageColumn::make('image')->label('Imagen'),
                 Tables\Columns\TextColumn::make('value')->label('Precio'),
                 ])

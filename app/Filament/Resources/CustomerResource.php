@@ -24,10 +24,10 @@ class CustomerResource extends Resource
         return $form
             ->schema([
                 //
-                Forms\Components\TextInput::make('name')->required()->maxlength(100),
-                Forms\Components\TextInput::make('identify')->required()->maxlength(20),
-                Forms\Components\TextInput::make('email')->required(),
-                Forms\Components\TextInput::make('phone')->tel()->required()->maxlength(20),
+                Forms\Components\TextInput::make('name')->required()->maxlength(100)->label('Nombre'),
+                Forms\Components\TextInput::make('identify')->required()->maxlength(20)->label('N° documento'),
+                Forms\Components\TextInput::make('email')->required()->label('Email'),
+                Forms\Components\TextInput::make('phone')->tel()->required()->maxlength(20)->label('Telefono'),
             ]);
     }
 

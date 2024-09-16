@@ -10,7 +10,6 @@
     <span>
         Aguacate {{ Auth::guard('vendedor')->user()->name }}
     </span>
-
     <a href="{{ route('seller.logout') }}">Desloguearse</a>
 </body>
 </html>
